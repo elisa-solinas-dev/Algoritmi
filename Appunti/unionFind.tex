@@ -1,0 +1,100 @@
+\chapter{Union-Find}
+Alcune applicazioni, come la rappresentazione dei grafi, richiedono di raggruppare $n$ elementi distinti in una collezione di insiemi disgiunti.\\
+Queste applicazioni richiedono anche l'esecuzione di due operazioni particolari:
+    \begin{itemize}
+        \item{\textbf{Union}: unire due insiemi.}
+        \item{\textbf{Find}: trovare l'unico insieme che contiene un determinato elemento.}
+    \end{itemize}
+
+\section{Caratteristiche di una struttura Union-Find}
+Una struttura dati per insiemi disgiunti mantiene una collezione 
+    \begin{equation}
+        S = \{S_1, ..., S_n\}
+    \end{equation}
+Ciascun insieme $S_i$ viene identificato attraverso uno dei suoi elementi, detto \textbf{rappresentante} di $S_i$.\\
+La scelta del rappresentante è effettuata in maniera differente a seconda dell'implementazione: in alcune tale scelta non è importante, mentre in altre il rappresentante di un insieme ha delle caratteristiche particolari (per esempio, è il minimo elemento). L'importante è che, se richiediamo due volte il rappresentante di un dato insieme (che non viene modificato fra le due richieste), la risposta dev'essere la stessa.\\\\
+Le operazioni fondamentali di una Union-Find sono le seguenti:
+    \begin{itemize}
+        \item{\texttt{Make-Set (x)}: crea un nuovo insieme il cui unico elemento (e rappresentante) è $x$.}
+        \item{\texttt{Union (x, y)}: unisce gli insiemi dinamici che contengono $x \in S_x$ e $y \in S_y$ in un nuovo insieme che è l'unione dei due insiemi.\\
+        In alcune applicazioni, il rappresentante dell'insieme risultante è un elemento qualsiasi di $S_x \cup S_y$, mentre in altre viene scelto specificamente il rappresentante di $S_x$ o $S_y$.\\
+        Spesso, nella pratica, gli elementi di uno degli insiemi vengono assorbiti dall'altro insieme.}
+        \item{\texttt{Find-Set (x)}: restituisce un puntatore al rappresentante dell'insieme che contiene $x$.}
+    \end{itemize}
+
+\section{Implementazione della Union-Find mediante foresta di alberi radicati}
+Rappresentiamo gli insiemi con \textbf{alberi radicati}, dove ogni nodo contiene un elemento e ogni albero rappresenta un insieme.\\
+In una \textbf{foresta di alberi disgiunti}, ogni elemento punta soltanto a suo padre. Il nodo radice di ogni albero contiene il rappresentante ed è padre di se stesso.\\\\
+Le tre operazioni delle Union-Find vengno realizzate come segue:
+    \begin{itemize}
+        \item{\texttt{MAKE-SET}: crea semplicemente un albero con un solo nodo.}
+        \item{\texttt{FIND-SET}: segue i puntatori ai padri finché non trova la radice dell'albero. I nodi visitati in questo cammino semplice verso la radice costituiscono il \textbf{cammino di ricerca}.}
+        \item{\texttt{UNION}: fa sì che la radice di un albero punti alla radice dell'altro albero.}
+    \end{itemize}
+
+\subsection{Euristiche per migliorare il tempo di esecuzione}
+\textbf{Unione per rango}: l'idea consiste nel fare in modo che la radice dell'albero con meno nodi punti alla radice dell'albero con più nodi. Anziché tenere esplicitamente traccia della dimensione del sottoalbero radicato in ciascun nodo, per ogni nodo manteniamo un \texttt{rank} che è un limite superiore per l'altezza del nodo. Sfruttando questa euristica, nell'operazione di \texttt{UNION}, la radice con il rango più piccolo viene fatta puntare alla radice con il rango più grande.\\\\
+\textbf{Compressione del cammino}: questa euristica viene utilizzata durante le operazioni \texttt{FIND-SET} per fare in modo che ciascun nodo nel cammino di ricerca punti direttamente alla radice. La compressione del cammino non cambia i ranghi.
+
+\subsection{Algoritmi}
+\subsubsection{\texttt{MAKE-SET (x)}}
+Quando l'operazione \texttt{MAKE-SET} crea un nuovo insieme con un solo elemento, il rango iniziale dell'unico nodo è 0.
+    \begin{lstlisting}
+        MAKE-SET (x)
+            x.p = x
+            x.rank = 0
+    \end{lstlisting}
+    
+\subsubsection{\texttt{UNION (x, y)}}
+Quando applichiamo l'operazione \texttt{UNION} a due alberi, si presentano due casi, a seconda che le radici abbiano o meno lo stesso rango.\\
+Se le radici hanno lo stesso rango, trasformiamo la radice di rango più alto in padre della radice di rango più basso, ma i ranghi restano inalterati.\\
+Se, invece, le radici hanno lo stesso rango, trasformiamo arbitrariamente una delle radici in padre e ne incrementiamo il rango.
+    \begin{lstlisting}
+        UNION (x, y)
+            LINK(FIND-SET(x), FIND-SET(y))
+        LINK (x,y)
+            if (x.rank > y.rank)
+                y.p = x
+            else 
+                (x.p = y)
+                if (x.rank == y.rank)
+                    y.rank = y.rank + 1
+    \end{lstlisting}
+    
+\subsubsection{\texttt{FIND-SET (x)}}
+L'operazione \texttt{FIND-SET} segue i puntatori ai padri finché non trova la radice dell'albero.\\
+Ogni operazione \texttt{FIND-SET} lascia i ranghi inalterati.
+    \begin{lstlisting}
+        FIND-SET (x)
+            if (x $\neq$ x.p)
+                x.p = FIND-SET(x.p)
+            else
+                return x.p
+    \end{lstlisting}
+Questa procedura è un metodo a \textbf{doppio passaggio}: durante il primo passaggio risale il cammino di ricerca per trovare la radice; durante il secondo passaggio, discende il cammino di ricerca per aggiornare i nodi in modo che puntino direttamente alla radice.
+
+\section{Rappresentare grafi con le Union-Find}
+Una delle tante applicazioni delle Union-Find consiste nel determinare le componenti connesse di un grafo non orientato.\\\\
+Le procedure fondamentali che permettono tali applicazioni sono le seguenti:
+    \begin{itemize}
+        \item{\texttt{Connected-Components (G)}: usa le operazioni fondamentali per calcolare le componenti connesse di un grafo.\\
+        Sostanzialmente, la procedura crea un nuovo insieme per ogni vertice di $G$. Successivamente, per ogni arco, unisce gli insiemi che contengono i due archi (se non si trovano già nello stesso insieme).
+            \begin{lstlisting}
+                CONNECTED-COMPONENTS(G)
+                    forall (v $\in$ G.V)
+                        MAKE-SET (v)
+                    forall ((u,v) $\in$ G.E)
+                        if (FIND-SET(u) $\neq$ FIND-SET(v))
+                            UNION (u,v)
+            \end{lstlisting}}
+        \item{\texttt{Same-Components (u,v)}: una volta che \texttt{Connected-Components (G)} ha pre-elaborato il grafo, questa procedura determina se due vertici sono nella stessa componente connessa.
+            \begin{lstlisting}
+                SAME-COMPONENTS(u,v)
+                    if (FIND-SET(u) == FIND-SET(v))
+                        return true
+                    else
+                        return false
+            \end{lstlisting}}
+    \end{itemize}
+    
+    

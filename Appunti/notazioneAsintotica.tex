@@ -1,0 +1,36 @@
+\chapter{Notazione asintotica}
+
+\section{Notazione $\Theta$\\
+Limite asintoticamente stretto}
+\begin{equation}\begin{aligned}
+	f(n) \in \Theta(g(n)) \qquad \leftrightarrow \qquad \exists c_1, c_2, n_0: \quad \forall n \geq n_0 \quad \\
+	0 \leq c_1 \cdot g(n) \leq f(n) \leq c_2 \cdot g(n)
+\end{aligned}\end{equation}
+\textbf{Informalmente}: Esistono due costanti $c_1, c_2$ tali che $f(n)$ possa essere rinchiusa tra $c_1 \cdot g(n)$ e $c_2 \cdot g(n)$
+
+\section{Notazione $O$-grande\\
+Limite asintotico superiore}
+\begin{equation}\begin{aligned}
+	f(n) \in O(g(n)) \qquad \leftrightarrow \qquad \exists c, n_0: \quad \forall n \geq n_0 \\
+	0 \leq  f(n) \leq c \cdot g(n)
+\end{aligned}\end{equation}
+\textbf{Informalmente}: $g(n)$ è un limite superiore a $f(n)$ a meno di una costante.
+
+\section{Notazione $\Omega$\\
+Limite asintotico inferiore}
+\begin{equation}\begin{aligned}
+	f(n) \in O(g(n)) \qquad \leftrightarrow \qquad \exists c, n_0: \quad \forall n \geq n_0 \\
+	 0 \leq c \cdot g(n) \leq  f(n)
+\end{aligned}\end{equation}
+\textbf{Informalmente}: $g(n)$ è un limite inferiore a $f(n)$ a meno di una costante.
+
+\section{Notazione $o$-piccolo\\
+Limite asintotico superiore non stretto}
+\begin{equation}\begin{aligned}
+	f(n) \in O(g(n)) \qquad \leftrightarrow \qquad \forall c \exists n_0: \quad \forall n \geq n_0 \\
+	0  \leq  f(n) \leq c \cdot g(n)
+\end{aligned}\end{equation}
+\textbf{Informalmente}: La funzione $f(n)$ diventa insignificante rispetto a $g(n)$ quando $n$ tende a $\infty$:
+\begin{equation}
+	\lim_{n \rightarrow \infty} \frac{f(n)}{g(n)} = 0
+\end{equation}

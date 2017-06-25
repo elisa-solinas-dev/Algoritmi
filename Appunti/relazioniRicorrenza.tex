@@ -1,0 +1,46 @@
+\chapter{Relazioni di ricorrenza}
+
+\section{Il metodo dell’esperto}
+\subsection{Relazioni lineari a partizione costante}
+\begin{equation}
+	T(n) = 
+	\begin{cases}
+		d \qquad \qquad n \leq m \leq h\\
+		\sum_{1 \leq i \leq h} a_i \cdot T(n-1) + c\cdot n^{\beta} \qquad n >m
+	\end{cases}
+\end{equation}
+Consideriamo $c > 0, \beta \geq 0, a = \sum_{1 \leq i \leq h} a_i$:
+\begin{equation}
+	\begin{cases}
+		T(n) \in O (n^{\beta + 1}) \quad a = 1\\
+		T(n) \in O (a^n \cdot n^{\beta}) \quad a \geq 2\\
+	\end{cases}
+\end{equation}	
+
+
+\subsection{Relazioni lineari a partizione bilanciata}
+\begin{equation}
+	T(n) = 
+	\begin{cases}
+		d \qquad \qquad n = 1\\
+		a \cdot T(\frac{n}{b}) + c \cdot n^{\beta} \qquad n > 1
+	\end{cases}
+\end{equation}
+Consideriamo $a \geq 1, b \geq 2, c > 0, d, \beta \geq 0, \alpha = \frac{\log{a}}{\log{b}}$:
+\begin{equation}
+	\begin{cases}
+		T(n) \in O (n^{\alpha}) \qquad \qquad \alpha > \beta\\
+		T(n) \in O (n^{\alpha} \log{n}) \qquad  \alpha = \beta\\
+		T(n) \in O (n^{\beta}) \qquad \qquad \alpha < \beta\\
+	\end{cases}
+\end{equation}	
+
+\section{Svolgimento delle ricorrenze}
+\subsection{Usare le sommatorie}
+\begin{equation}\begin{aligned}
+	\sum_{k = 1}^{n} k = \frac{1}{2} \cdot n \cdot (n+1)\\
+	\sum_{k = 0}^{n} x^k = \frac{x^{n+1} - 1}{x - 1}\\
+	\sum_{k = 1}^{n} \frac{1}{k} = \log_n{n} + O(1)
+\end{aligned}\end{equation}
+
+

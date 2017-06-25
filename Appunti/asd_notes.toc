@@ -1,0 +1,63 @@
+\select@language {italian}
+\select@language {italian}
+\contentsline {chapter}{\numberline {1}Notazione asintotica}{3}{chapter.1}
+\contentsline {section}{\numberline {1.1}Notazione $\Theta $\\ Limite asintoticamente stretto}{3}{section.1.1}
+\contentsline {section}{\numberline {1.2}Notazione $O$-grande\\ Limite asintotico superiore}{3}{section.1.2}
+\contentsline {section}{\numberline {1.3}Notazione $\Omega $\\ Limite asintotico inferiore}{3}{section.1.3}
+\contentsline {section}{\numberline {1.4}Notazione $o$-piccolo\\ Limite asintotico superiore non stretto}{3}{section.1.4}
+\contentsline {chapter}{\numberline {2}Relazioni di ricorrenza}{4}{chapter.2}
+\contentsline {section}{\numberline {2.1}Il metodo dell\IeC {\textquoteright }esperto}{4}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Relazioni lineari a partizione costante}{4}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}Relazioni lineari a partizione bilanciata}{4}{subsection.2.1.2}
+\contentsline {section}{\numberline {2.2}Svolgimento delle ricorrenze}{4}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Usare le sommatorie}{4}{subsection.2.2.1}
+\contentsline {chapter}{\numberline {3}Algoritmi di Ordinamento}{5}{chapter.3}
+\contentsline {section}{\numberline {3.1}Insertion Sort}{5}{section.3.1}
+\contentsline {section}{\numberline {3.2}Selection Sort}{5}{section.3.2}
+\contentsline {section}{\numberline {3.3}Quick Sort}{5}{section.3.3}
+\contentsline {section}{\numberline {3.4}Merge Sort}{5}{section.3.4}
+\contentsline {section}{\numberline {3.5}Counting Sort}{5}{section.3.5}
+\contentsline {chapter}{\numberline {4}Strutture Dati}{6}{chapter.4}
+\contentsline {section}{\numberline {4.1}Array statici}{6}{section.4.1}
+\contentsline {section}{\numberline {4.2}Array dinamici}{6}{section.4.2}
+\contentsline {section}{\numberline {4.3}Liste}{6}{section.4.3}
+\contentsline {section}{\numberline {4.4}Hashing Table}{6}{section.4.4}
+\contentsline {chapter}{\numberline {5}Code di priorit\IeC {\`a}}{7}{chapter.5}
+\contentsline {chapter}{\numberline {6}Alberi}{8}{chapter.6}
+\contentsline {section}{\numberline {6.1}Alberi radicati}{8}{section.6.1}
+\contentsline {section}{\numberline {6.2}Alberi binari di ricerca}{8}{section.6.2}
+\contentsline {section}{\numberline {6.3}Alberi Rosso-Neri}{8}{section.6.3}
+\contentsline {chapter}{\numberline {7}Union-Find}{9}{chapter.7}
+\contentsline {section}{\numberline {7.1}Caratteristiche di una struttura Union-Find}{9}{section.7.1}
+\contentsline {section}{\numberline {7.2}Implementazione della Union-Find mediante foresta di alberi radicati}{9}{section.7.2}
+\contentsline {subsection}{\numberline {7.2.1}Euristiche per migliorare il tempo di esecuzione}{10}{subsection.7.2.1}
+\contentsline {subsection}{\numberline {7.2.2}Algoritmi}{10}{subsection.7.2.2}
+\contentsline {subsubsection}{\texttt {MAKE-SET (x)}}{10}{section*.2}
+\contentsline {subsubsection}{\texttt {UNION (x, y)}}{10}{section*.3}
+\contentsline {subsubsection}{\texttt {FIND-SET (x)}}{11}{section*.4}
+\contentsline {section}{\numberline {7.3}Rappresentare grafi con le Union-Find}{11}{section.7.3}
+\contentsline {chapter}{\numberline {8}Grafi}{12}{chapter.8}
+\contentsline {section}{\numberline {8.1}Definizioni}{12}{section.8.1}
+\contentsline {section}{\numberline {8.2}Rappresentazione mediante liste di adiacenza}{13}{section.8.2}
+\contentsline {section}{\numberline {8.3}Rappresentazione mediante matrice di adiacenza}{13}{section.8.3}
+\contentsline {section}{\numberline {8.4}Visita BFS (Breadth-First Search)}{14}{section.8.4}
+\contentsline {section}{\numberline {8.5}Visita DFS (Depth-First Search)}{15}{section.8.5}
+\contentsline {subsection}{\numberline {8.5.1}L'idea}{15}{subsection.8.5.1}
+\contentsline {subsection}{\numberline {8.5.2}Il sottografo dei predecessori}{15}{subsection.8.5.2}
+\contentsline {subsection}{\numberline {8.5.3}Colorazione dei vertici}{15}{subsection.8.5.3}
+\contentsline {subsection}{\numberline {8.5.4}Temporizzazione della DFS}{15}{subsection.8.5.4}
+\contentsline {subsection}{\numberline {8.5.5}Teorema del cammino bianco}{16}{subsection.8.5.5}
+\contentsline {subsection}{\numberline {8.5.6}Classificazione degli archi}{16}{subsection.8.5.6}
+\contentsline {subsection}{\numberline {8.5.7}L'algoritmo}{16}{subsection.8.5.7}
+\contentsline {section}{\numberline {8.6}Ordinamento topologico}{17}{section.8.6}
+\contentsline {section}{\numberline {8.7}Componenti fortemente connesse}{17}{section.8.7}
+\contentsline {section}{\numberline {8.8}Alberi di connessione minimi}{18}{section.8.8}
+\contentsline {subsection}{\numberline {8.8.1}Metodo generico}{18}{subsection.8.8.1}
+\contentsline {subsection}{\numberline {8.8.2}Algoritmo di Kruskal}{19}{subsection.8.8.2}
+\contentsline {subsection}{\numberline {8.8.3}Algoritmo di Prim}{19}{subsection.8.8.3}
+\contentsline {section}{\numberline {8.9}Cammini minimi}{20}{section.8.9}
+\contentsline {subsection}{\numberline {8.9.1}Definizioni e propriet\IeC {\`a}}{20}{subsection.8.9.1}
+\contentsline {subsection}{\numberline {8.9.2}Rappresentazione dei cammini minimi}{21}{subsection.8.9.2}
+\contentsline {subsection}{\numberline {8.9.3}Rilassamento di un arco}{22}{subsection.8.9.3}
+\contentsline {subsection}{\numberline {8.9.4}Condizione di Bellman}{22}{subsection.8.9.4}
+\contentsline {subsection}{\numberline {8.9.5}Algoritmo di Dijkstra}{23}{subsection.8.9.5}

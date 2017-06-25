@@ -1,0 +1,6 @@
+{
+    "brackets-latex.texBinDirectory": "/Library/Tex/texbin",
+    "brackets-latex.outputDirectory": ".",
+    "brackets-latex.compiler": "pdflatex",
+    "brackets-latex.mainFile": "asd_notes.tex"
+}
